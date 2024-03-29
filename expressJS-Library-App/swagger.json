@@ -1,0 +1,751 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Library App API",
+      "description": "Library App",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "host": "localhost:8111",
+    "basePath": "/",
+    "tags": [
+      {
+        "name": "Book",
+        "description": "Book that is in the library"
+      },
+      {
+        "name": "Member",
+        "description": "Member of the library"
+      },
+      {
+        "name": "Record",
+        "description": "Record of borrow-return"
+      },
+      {
+        "name": "Restriction",
+        "description": "Restriction on member"
+      },
+      {
+        "name": "BookBorrowedAggregate",
+        "description": "Aggregate Response To Book Borrow Request"
+      },
+      {
+        "name": "BookReturnedAggregate",
+        "description": "Aggregate Response To Book Borrow Request"
+      },
+      {
+        "name": "MemberFetchAllAggregate",
+        "description": "Aggregate Response To Fetch All Member"
+      },
+      {
+        "name": "BookFetchAllAggregate",
+        "description": "Aggregate Response To Fetch All Member"
+      }
+    ],
+    "schemes": [
+      "http",
+      "https"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "paths": {
+      "/records/borrow": {
+        "post": {
+          "summary": "Borrow Books",
+          "tags": [
+            "Record",
+            "Member",
+            "Book",
+            "Restriction",
+            "BookBorrowedAggregate"
+          ],
+          "description": "Borrow Book Operation",
+          "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "description": "Return Book Parameter",
+              "schema": {
+                "book": {
+                  "schema": {
+                    "$ref": "#/definitions/Book"
+                  },
+                  "required": true
+                },
+                "member": {
+                  "schema": {
+                    "$ref": "#/definitions/Member"
+                  },
+                  "required": true
+                }
+              },
+              "example": {
+                "book": {
+                  "bookCode": "JK-45",
+                  "bookTitle": "Harry Potter",
+                  "bookAuthor": "J.K Rowling",
+                  "bookStock": 1
+                },
+                "member": {
+                  "memberCode": "M001",
+                  "memberName": "Angga"
+                }
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/BookBorrowedAggregate"
+              }
+            }
+          }
+        }
+      },
+      "/records/return": {
+        "post": {
+          "summary": "Return Books",
+          "tags": [
+            "Record",
+            "Member",
+            "Book",
+            "Restriction",
+            "BookReturnedAggregate"
+          ],
+          "description": "Return Book To Library",
+          "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "description": "Return Book Parameter",
+              "schema": {
+                "book": {
+                  "schema": {
+                    "$ref": "#/definitions/Book"
+                  },
+                  "required": true
+                },
+                "member": {
+                  "schema": {
+                    "$ref": "#/definitions/Member"
+                  },
+                  "required": true
+                },
+                "record": {
+                  "schema": {
+                    "$ref": "#/definitions/Record"
+                  },
+                  "required": true
+                }
+              },
+              "example": {
+                "book": {
+                  "bookCode": "JK-45",
+                  "bookTitle": "Harry Potter",
+                  "bookAuthor": "J.K Rowling",
+                  "bookStock": 1
+                },
+                "member": {
+                  "memberCode": "M001",
+                  "memberName": "Angga"
+                },
+                "record": {
+                  "id": "1",
+                  "bookCode": "JK-45",
+                  "memberCode": "M001"
+                }
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "Return Book Success",
+              "schema": {
+                "$ref": "#/definitions/BookReturnedAggregate"
+              }
+            }
+          }
+        }
+      },
+      "/members/": {
+        "get": {
+          "summary": "Return Books",
+          "tags": [
+            "Member",
+            "MemberFetchAllAggregate"
+          ],
+          "description": "Fetch All Members With The Amount Of the Borrowed Book",
+          "parameters": [],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "Get All Member Success",
+              "schema": {
+                "$ref": "#/definitions/MemberFetchAllAggregate"
+              },
+              "example": {
+                "action": "memberCheck",
+                "status": 200,
+                "success": 1,
+                "result": {
+                  "Member": [
+                    {
+                      "code": "M001",
+                      "name": "Angga",
+                      "created_at": "2024-03-28T05:10:18.000Z",
+                      "updated_at": null,
+                      "deleted_at": null,
+                      "borrowedBook": "0"
+                    },
+                    {
+                      "code": "M002",
+                      "name": "Ferry",
+                      "created_at": "2024-03-28T05:10:18.000Z",
+                      "updated_at": null,
+                      "deleted_at": null,
+                      "borrowedBook": "0"
+                    },
+                    {
+                      "code": "M003",
+                      "name": "Putri",
+                      "created_at": "2024-03-28T05:10:18.000Z",
+                      "updated_at": null,
+                      "deleted_at": null,
+                      "borrowedBook": "0"
+                    }
+                  ],
+                  "Message": "Fetching All Member Succeed"
+                }
+              }
+            }
+          }
+        }
+      },
+      "/books/": {
+        "get": {
+          "summary": "Return Books",
+          "tags": [
+            "Record",
+            "Book",
+            "Restriction",
+            "BookFetchAllAggregate"
+          ],
+          "description": "Login user in system",
+          "parameters": [],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "Login Success",
+              "schema": {
+                "$ref": "#/definitions/BookFetchAllAggregate"
+              }
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "Book": {
+        "type": "object",
+        "required": [
+          "bookCode",
+          "bookTitle",
+          "bookAuthor",
+          "bookStock"
+        ],
+        "properties": {
+          "bookCode": {
+            "type": "string",
+            "description": "book primary index must be unique"
+          },
+          "bookTitle": {
+            "type": "string",
+            "description": "book title"
+          },
+          "bookAuthor": {
+            "type": "string",
+            "description": "book author's name"
+          },
+          "bookStock": {
+            "type": "integer",
+            "description": "book stock that could be borrowed"
+          },
+          "bookCreatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "bookUpdatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "bookDeletedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "example": {
+          "bookCode": "JK-45",
+          "bookTitle": "Harry Potter",
+          "bookAuthor": "J.K Rowling",
+          "bookStock": 1
+        }
+      },
+      "Record": {
+        "type": "object",
+        "required": [
+          "id",
+          "bookCode",
+          "memberCode"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Record ID"
+          },
+          "bookCode": {
+            "type": "string",
+            "description": "Book code associated with the record"
+          },
+          "memberCode": {
+            "type": "string",
+            "description": "Member code associated with the record"
+          },
+          "recordBorrowedAt": {
+            "type": "string",
+            "description": "Date and time when the book was borrowed"
+          },
+          "recordReturnedAt": {
+            "type": "string",
+            "description": "Date and time when the book was returned"
+          },
+          "recordDeletedAt": {
+            "type": "string",
+            "description": "Date and time when the bookd was deleted"
+          }
+        }
+      },
+      "Member": {
+        "type": "object",
+        "required": [
+          "memberCode",
+          "memberName"
+        ],
+        "properties": {
+          "memberCode": {
+            "type": "string",
+            "description": "Member code"
+          },
+          "memberName": {
+            "type": "string",
+            "description": "Member name"
+          },
+          "memberCreatedAt": {
+            "type": "string",
+            "description": "Date and time when the member was created"
+          },
+          "memberUpdatedAt": {
+            "type": "string",
+            "description": "Date and time when the member was last updated"
+          },
+          "memberDeletedAt": {
+            "type": "string",
+            "description": "Date and time when the member was deleted"
+          }
+        },
+        "example": {
+          "memberCode": "M001",
+          "memberName": "Angga"
+        }
+      },
+      "Restriction": {
+        "type": "object",
+        "properties": {
+          "restrictionId": {
+            "type": "string",
+            "description": "Restriction ID"
+          },
+          "memberCode": {
+            "type": "string",
+            "description": "Member code"
+          },
+          "restrictionType": {
+            "type": "string",
+            "description": "Restriction type"
+          },
+          "restrictionStartDate": {
+            "type": "string",
+            "description": "Start date of the restriction"
+          },
+          "restrictionEndDate": {
+            "type": "string",
+            "description": "End date of the restriction"
+          },
+          "restrictionDeletedAt": {
+            "type": "string",
+            "description": "Date and time when the restriction was deleted"
+          }
+        }
+      },
+      "BookBorrowedAggregate": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "description": "The action performed"
+          },
+          "status": {
+            "type": "integer",
+            "description": "HTTP status code"
+          },
+          "success": {
+            "type": "integer",
+            "description": "Indicator of success"
+          },
+          "result": {
+            "type": "object",
+            "properties": {
+              "Book": {
+                "type": "object",
+                "properties": {
+                  "bookCode": {
+                    "type": "string",
+                    "description": "Book code"
+                  },
+                  "bookTitle": {
+                    "type": "string",
+                    "description": "Book title"
+                  },
+                  "bookAuthor": {
+                    "type": "string",
+                    "description": "Book author"
+                  },
+                  "bookStock": {
+                    "type": "integer",
+                    "description": "Book stock"
+                  },
+                  "bookCreatedAt": {
+                    "type": "string",
+                    "description": "Book creation date"
+                  },
+                  "bookUpdatedAt": {
+                    "type": "string",
+                    "description": "Book update date"
+                  },
+                  "bookDeletedAt": {
+                    "type": "string",
+                    "description": "Book deletion date"
+                  }
+                }
+              },
+              "Member": {
+                "type": "object",
+                "properties": {
+                  "memberCode": {
+                    "type": "string",
+                    "description": "Member code"
+                  },
+                  "memberName": {
+                    "type": "string",
+                    "description": "Member name"
+                  },
+                  "memberCreatedAt": {
+                    "type": "string",
+                    "description": "Member creation date"
+                  },
+                  "memberUpdatedAt": {
+                    "type": "string",
+                    "description": "Member update date"
+                  },
+                  "memberDeletedAt": {
+                    "type": "string",
+                    "description": "Member deletion date"
+                  }
+                }
+              },
+              "Record": {
+                "type": "object",
+                "properties": {
+                  "memberCode": {
+                    "type": "string",
+                    "description": "Member code"
+                  },
+                  "id": {
+                    "type": "integer",
+                    "description": "Record ID"
+                  },
+                  "bookCode": {
+                    "type": "string",
+                    "description": "Book code"
+                  },
+                  "recordBorrowedAt": {
+                    "type": "string",
+                    "description": "Date when the record was borrowed"
+                  },
+                  "recordReturnedAt": {
+                    "type": "string",
+                    "description": "Date when the record was returned"
+                  },
+                  "recordDeletedAt": {
+                    "type": "string",
+                    "description": "Date when the record was deleted"
+                  }
+                }
+              },
+              "Message": {
+                "type": "string",
+                "description": "Success message"
+              }
+            }
+          }
+        }
+      },
+      "BookReturnedAggregate": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "description": "The action performed"
+          },
+          "status": {
+            "type": "integer",
+            "description": "HTTP status code"
+          },
+          "success": {
+            "type": "integer",
+            "description": "Indicator of success"
+          },
+          "result": {
+            "type": "object",
+            "properties": {
+              "Book": {
+                "type": "object",
+                "properties": {
+                  "bookCode": {
+                    "type": "string",
+                    "description": "Book code"
+                  },
+                  "bookTitle": {
+                    "type": "string",
+                    "description": "Book title"
+                  },
+                  "bookAuthor": {
+                    "type": "string",
+                    "description": "Book author"
+                  },
+                  "bookStock": {
+                    "type": "integer",
+                    "description": "Book stock"
+                  },
+                  "bookCreatedAt": {
+                    "type": "string",
+                    "description": "Book creation date"
+                  },
+                  "bookUpdatedAt": {
+                    "type": "string",
+                    "description": "Book update date"
+                  },
+                  "bookDeletedAt": {
+                    "type": "string",
+                    "description": "Book deletion date"
+                  }
+                }
+              },
+              "Member": {
+                "type": "object",
+                "properties": {
+                  "memberCode": {
+                    "type": "string",
+                    "description": "Member code"
+                  },
+                  "memberName": {
+                    "type": "string",
+                    "description": "Member name"
+                  },
+                  "memberCreatedAt": {
+                    "type": "string",
+                    "description": "Member creation date"
+                  },
+                  "memberUpdatedAt": {
+                    "type": "string",
+                    "description": "Member update date"
+                  },
+                  "memberDeletedAt": {
+                    "type": "string",
+                    "description": "Member deletion date"
+                  }
+                }
+              },
+              "Record": {
+                "type": "object",
+                "properties": {
+                  "memberCode": {
+                    "type": "string",
+                    "description": "Member code"
+                  },
+                  "id": {
+                    "type": "integer",
+                    "description": "Record ID"
+                  },
+                  "bookCode": {
+                    "type": "string",
+                    "description": "Book code"
+                  },
+                  "recordBorrowedAt": {
+                    "type": "string",
+                    "description": "Date when the record was borrowed"
+                  },
+                  "recordReturnedAt": {
+                    "type": "string",
+                    "description": "Date when the record was returned"
+                  },
+                  "recordDeletedAt": {
+                    "type": "string",
+                    "description": "Date when the record was deleted"
+                  }
+                }
+              },
+              "Message": {
+                "type": "string",
+                "description": "Return message"
+              }
+            }
+          }
+        }
+      },
+      "MemberFetchAllAggregate": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "description": "The action performed"
+          },
+          "status": {
+            "type": "integer",
+            "description": "HTTP status code"
+          },
+          "success": {
+            "type": "integer",
+            "description": "Indicator of success"
+          },
+          "result": {
+            "type": "object",
+            "properties": {
+              "Member": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string",
+                      "description": "Member code"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Member name"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "description": "Member creation date"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "description": "Member update date"
+                    },
+                    "deleted_at": {
+                      "type": "string",
+                      "description": "Member deletion date"
+                    },
+                    "borrowedBook": {
+                      "type": "string",
+                      "description": "Borrowed Book Amount"
+                    }
+                  }
+                }
+              },
+              "Message": {
+                "type": "string",
+                "description": "Return message"
+              }
+            }
+          }
+        }
+      },
+      "BookFetchAllAggregate": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "description": "The action performed"
+          },
+          "status": {
+            "type": "integer",
+            "description": "HTTP status code"
+          },
+          "success": {
+            "type": "integer",
+            "description": "Indicator of success"
+          },
+          "result": {
+            "type": "object",
+            "properties": {
+              "Book": {
+                "type": "array",
+                "items": {
+                  "code": {
+                    "type": "string",
+                    "description": "book primary index must be unique"
+                  },
+                  "title": {
+                    "type": "string",
+                    "description": "book title"
+                  },
+                  "author": {
+                    "type": "string",
+                    "description": "book author's name"
+                  },
+                  "stock": {
+                    "type": "integer",
+                    "description": "book stock that could be borrowed"
+                  },
+                  "createdAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "updatedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "deletedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                }
+              }
+            },
+            "Message": {
+              "type": "string",
+              "description": "Return message"
+            }
+          }
+        }
+      }
+    }
+  }

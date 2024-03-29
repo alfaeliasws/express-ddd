@@ -1,0 +1,75 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "LibraryApp",
+    "dateExported": "2024-03-29T11:16:54.876Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "2f091382-8403-4ecb-b45d-a9a6f7bfdfe2",
+            "colId": "8a8b7e77-d7d5-46d4-8d9a-81ecaab73e7d",
+            "containerId": "",
+            "name": "http://localhost:8111/",
+            "url": "http://localhost:8111/books/",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-03-29T11:15:01.883Z",
+            "modified": "2024-03-29T11:15:01.883Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "c5b63e81-2ea0-4e81-bc05-653aefc7bb53",
+            "colId": "8a8b7e77-d7d5-46d4-8d9a-81ecaab73e7d",
+            "containerId": "",
+            "name": "Get All Members",
+            "url": "http://localhost:8111/books/",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-03-29T11:16:00.299Z",
+            "modified": "2024-03-29T11:16:00.299Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "b687a042-e8a3-43ca-abee-5f5e76c6d8f2",
+            "colId": "8a8b7e77-d7d5-46d4-8d9a-81ecaab73e7d",
+            "containerId": "",
+            "name": "Return Book",
+            "url": "http://localhost:8111/records/return",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-03-29T11:16:07.731Z",
+            "modified": "2024-03-29T11:16:07.731Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"book\": {\n    \"bookCode\": \"JK-45\",\n    \"bookTitle\": \"Harry Potter\",\n    \"bookAuthor\": \"J.K Rowling\",\n    \"bookStock\": 1\n  },\n  \"member\": {\n    \"memberCode\": \"M001\",\n    \"memberName\": \"Angga\"\n  },\n  \"record\": {\n    \"id\": \"1\",\n    \"bookCode\": \"JK-45\",\n    \"memberCode\": \"M001\"\n  }\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "9df514a2-816c-4897-b906-4ffdb3cb9c1e",
+            "colId": "8a8b7e77-d7d5-46d4-8d9a-81ecaab73e7d",
+            "containerId": "",
+            "name": "Borrow Book",
+            "url": "http://localhost:8111/records/borrow",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-03-29T11:16:23.563Z",
+            "modified": "2024-03-29T11:16:23.563Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"book\":       {\n        \"bookCode\": \"JK-45\",\n        \"bookTitle\": \"Harry Potter\",\n        \"bookAuthor\": \"J.K Rowling\",\n        \"bookStock\": 1\n      },\n    \"member\": {\n      \"memberCode\": \"M001\",\n      \"memberName\": \"Angga\"\n    }\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}

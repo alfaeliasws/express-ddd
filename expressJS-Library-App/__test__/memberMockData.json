@@ -1,0 +1,128 @@
+[
+    {
+        "memberCode": "M001",
+        "memberName": "Angga",
+        "memberCreatedAt": "2024-03-28 12:10:18",
+        "memberUpdatedAt": null,
+        "memberDeletedAt": null
+    },
+    {
+        "memberCode": "M002",
+        "memberName": "Ferry",
+        "memberCreatedAt": "2024-03-28 12:10:18",
+        "memberUpdatedAt": null,
+        "memberDeletedAt": null
+    },
+    {
+        "memberCode": "M003",
+        "memberName": "Putri",
+        "memberCreatedAt": "2024-03-28 12:10:18",
+        "memberUpdatedAt": null,
+        "memberDeletedAt": null
+    },
+    {
+        "memberCode": "M004",
+        "memberName": "Budi",
+        "memberCreatedAt": "2024-03-28 12:10:18",
+        "memberUpdatedAt": null,
+        "memberDeletedAt": null
+    },
+    {
+        "memberCode": "M005",
+        "memberName": "Cindy",
+        "memberCreatedAt": "2024-03-28 12:10:18",
+        "memberUpdatedAt": null,
+        "memberDeletedAt": null
+    },
+    {
+        "memberCode": "M006",
+        "memberName": "David",
+        "memberCreatedAt": "2024-03-28 12:10:18",
+        "memberUpdatedAt": null,
+        "memberDeletedAt": null
+    },
+    {
+        "memberCode": "M007",
+        "memberName": "Elsa",
+        "memberCreatedAt": "2024-03-28 12:10:18",
+        "memberUpdatedAt": null,
+        "memberDeletedAt": null
+    },
+    {
+        "memberCode": "M008",
+        "memberName": "Fadil",
+        "memberCreatedAt": "2024-03-28 12:10:18",
+        "memberUpdatedAt": null,
+        "memberDeletedAt": null
+    },
+    {
+        "memberCode": "M009",
+        "memberName": "Gina",
+        "memberCreatedAt": "2024-03-28 12:10:18",
+        "memberUpdatedAt": null,
+        "memberDeletedAt": null
+    },
+    {
+        "memberCode": "M010",
+        "memberName": "Hendra",
+        "memberCreatedAt": "2024-03-28 12:10:18",
+        "memberUpdatedAt": null,
+        "memberDeletedAt": null
+    },
+    {
+        "memberCode": "M011",
+        "memberName": "Ivan",
+        "memberCreatedAt": "2024-03-28 12:10:18",
+        "memberUpdatedAt": null,
+        "memberDeletedAt": null
+    },
+    {
+        "memberCode": "M012",
+        "memberName": "Joko",
+        "memberCreatedAt": "2024-03-28 12:10:18",
+        "memberUpdatedAt": null,
+        "memberDeletedAt": null
+    },
+    {
+        "memberCode": "M013",
+        "memberName": "Kiki",
+        "memberCreatedAt": "2024-03-28 12:10:18",
+        "memberUpdatedAt": null,
+        "memberDeletedAt": null
+    },
+    {
+        "memberCode": "M014",
+        "memberName": "Linda",
+        "memberCreatedAt": "2024-03-28 12:10:18",
+        "memberUpdatedAt": null,
+        "memberDeletedAt": null
+    },
+    {
+        "memberCode": "M015",
+        "memberName": "Mega",
+        "memberCreatedAt": "2024-03-28 12:10:18",
+        "memberUpdatedAt": null,
+        "memberDeletedAt": null
+    },
+    {
+        "memberCode": "M016",
+        "memberName": "Nadia",
+        "memberCreatedAt": "2024-03-28 12:10:18",
+        "memberUpdatedAt": null,
+        "memberDeletedAt": null
+    },
+    {
+        "memberCode": "M017",
+        "memberName": "Oscar",
+        "memberCreatedAt": "2024-03-28 12:10:18",
+        "memberUpdatedAt": null,
+        "memberDeletedAt": null
+    },
+    {
+        "memberCode": "M018",
+        "memberName": "Putra",
+        "memberCreatedAt": "2024-03-28 12:10:18",
+        "memberUpdatedAt": null,
+        "memberDeletedAt": null
+    }
+]
