@@ -3,7 +3,8 @@
 ## How To Run The App
 1. Run "npm i" in terminal
 2. Make sure port 8111 is not occupied
-3. Run "npx nodemon index.ts"
+3. Make .env file with format that is given in .env_example, use TEST=no for non test environment, and use TEST=yes for test environment  
+4. Run "npx nodemon index.ts"
 
 ## Notes
 Requirement Notes:
